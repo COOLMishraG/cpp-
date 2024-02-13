@@ -1,0 +1,1 @@
+wave_sort(&vec , n);
