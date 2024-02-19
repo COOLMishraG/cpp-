@@ -8,61 +8,38 @@ class node{
         data=val;
         next=NULL;
     }
-    ~node(){
-        int value =this->data;
-        if(this->next!=NULL){
-            delete next;
-            this -> next=NULL;
-        }
-        cout<<"memoery freed at"<<value<<endl;
-    }
 };
-void deleter_node(node* &start , int index){
-    if(index!=0){
-           node* temp=start;
-    node* curr=temp->next;
-    int k=0;
-    while(k<index-1){
-        temp=temp->next;
-        curr=temp->next;
-        k++;
-    }
-    temp->next=curr->next;
-    } else {
-        node* temp=start;
-        temp=temp->next;
-    }
- 
-    
+void add_to_tail(node* &tail , int val){
+    node* n=new node(val);
+    tail->next=n;
+    tail=tail->next;
 }
-void insert_at_tail(node* &tail , int val){
-    node* imp=new node(val);
-    tail->next=imp;
-    tail=imp;
+void delete_node(node* &head , int index){
+    node* temp=head;
+    node* prev=nullptr;
+    while(temp!=nullptr && temp->data!=index){
+        temp=temp->next;
+        prev=temp;
+    }
+    delete temp;
 }
-void print (node* &head){
+void print(node* head){
     node* temp=head;
     while(temp!=NULL){
         cout<<temp->data<<endl;
         temp=temp->next;
     }
 }
-
-
-
 int main(){
-    node* node1=new node(1);
-    node* tail=node1;
-    node* start=node1;
-    insert_at_tail(tail , 2);
-        insert_at_tail(tail , 3);
-    insert_at_tail(tail , 4);
-    insert_at_tail(tail , 5);
-    insert_at_tail(tail , 6);
-    insert_at_tail(tail , 7);
-    insert_at_tail(tail , 8);
-    deleter_node(start , 0);
-    print (node1);
-    return 0;
+    node* node1= new node(1);
+    node* head=node1;
     
+    node* tail=node1;
+    add_to_tail(tail , 2);
+        add_to_tail(tail , 3);
+    add_to_tail(tail , 4);
+    add_to_tail(tail , 5);
+    add_to_tail(tail , 6);
+    delete_node(head , 3);
+    print(head);
 }
