@@ -11,7 +11,15 @@ class node{
         prev=NULL;
     }
 };
-
+void delete_node(node* &head , int val){
+    node* temp=head;
+    for(int i=1 ; i<val ; i++){
+        temp=temp->next;
+    }
+    temp->next->prev=temp->prev;
+    temp->prev->next=temp->next;
+    delete temp;
+}
 void ADD_TAIL(node* &head , int val){
     node* node1=new node(val);
     node* temp=head;
@@ -36,11 +44,12 @@ int main(){
     node* node1=new node(0);
     node* head=node1;
     ADD_TAIL(head,1);
-        ADD_TAIL(head,2);
+    ADD_TAIL(head,2);
     ADD_TAIL(head,3);
     ADD_TAIL(head,4);
     ADD_TAIL(head,5);
     ADD_TAIL(head,6);
+    delete_node(head , 3);
     print(head);
 
 }
