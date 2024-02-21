@@ -1,0 +1,1 @@
+   // node* ans=append(head , 3);
