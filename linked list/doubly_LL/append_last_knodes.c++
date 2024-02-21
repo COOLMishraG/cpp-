@@ -53,15 +53,15 @@ void print(node* &head){
 }
 int main(){
     node* node1 = new node(0);
-    node* head=node1;
-    add(head, 1);
-    add(head ,2);
-    add(head ,3);
-    add(head ,4);
-    add(head ,5);
-    add(head ,6);
-    add(head ,7);
-    node* ans=append(head , 3);
+    node* headA=node1;
+    add(headA, 1);
+    add(headA ,2);
+    add(headA ,3);
+    add(headA ,4);
+    add(headA ,5);
+    add(headA ,6);
+    add(headA ,7);
+    node* ans=append(headA , 3);
     print(ans);
     return 0;
 
