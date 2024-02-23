@@ -13,7 +13,7 @@ int main(){
             st.push(n[i]);
             continue;
         }
-        while(st.top()>=n[i]){
+        while(!st.empty() &&st.top()>=n[i]){
             st.pop();
         }
         
