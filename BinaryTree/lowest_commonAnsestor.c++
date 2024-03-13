@@ -27,12 +27,23 @@ bool getpath(node* root , node* target , vector<int> &ans){
     ans.pop_back();
     return false;
 }
-
-
-
-
-
-
+int getnode(node* root ,  node* p , node* q ){
+    if(root==NULL){
+        return -1;
+    }
+    vector<int> path1 ,path2;
+    if(!getpath(root, p , path1) && !getpath(root , q ,path2)){
+        return -1;
+    }
+    int i=0;
+    for( i=0 ; i<path1.size()&& path2.size() ; i++){
+        if(path1[i]!=path2[i]){
+            break;
+        }
+    }
+    return path1[i+1];
+    
+}
 
 int main(){
     node* root=new node(1);
@@ -42,6 +53,7 @@ int main(){
     root->left->right=new node(5);
     root->right->right=new node(6);
     root->right->right=new node(7);
+   cout << getnode(root , root->left , root->right->right);
 
 
 }
