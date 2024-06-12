@@ -1,25 +1,27 @@
 #include<iostream>
-#include<map>
-#include<vector>
+#include<unordered_map>
 using namespace std;
-#define vi vector<int>
-#define ff first
-#define ss second 
+void Print_Map(unordered_map<string , int> m1){
+    unordered_map<string , int> :: iterator it=m1.begin();
+    while(it!=m1.end()){
+        cout<<it->first << "->" << it->second;
+        cout<<endl;
+        it++;
+    }
+    return;
+}
 int main(){
     int n;
     cin>>n;
-    vi a(n);
+    unordered_map<string , int> m1;
     for(int i=0 ; i<n ; i++){
-        cin>>a[i];
+        string temp;
+        cin>>temp;
+        int temp1;
+        cin>>temp1;
+        pair<string , int> p1=make_pair(temp , temp1);
+        m1.insert(p1);
     }
-
-    map<int , int> m1;
-    vector<int> :: iterator it;
-    for(it = a.begin() ; it!=a.end() ; it++){
-        m1[*it]++;
-    }
-    for(auto i:m1){
-        cout<<i.ff<<i.ss<<endl;
-    }
+    Print_Map(m1);
     return 0;
 }

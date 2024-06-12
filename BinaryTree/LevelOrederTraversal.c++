@@ -16,8 +16,7 @@ struct node
 void display(node* root){
     if(root==NULL){
         return;
-    }
-    cout<<root->data<<" ";
+t    cout<<root->data<<" ";
     display(root->left);
     display(root->right);
 }
